@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class MovementScript : MonoBehaviour
 {
-    public int speedRun = 5;
-    public int speedJump = 1;
+    private int speedRun = 10;
+    private int speedJump = 250;
     public bool facingRight = false;
     public float moveOnX;
     public bool grounded; 
