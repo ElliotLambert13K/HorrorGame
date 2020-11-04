@@ -54,5 +54,6 @@ public class MovementScript : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * speedJump);
         grounded = false;
+        Debug.Log("bruh");
     }
 }
