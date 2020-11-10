@@ -15,21 +15,20 @@ public class TaskOpenAndClose : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Cancel"))
+        if (Input.GetButtonDown("Fire3"))
         {
             minigameOpen = !minigameOpen;
-        }
+            if (minigameOpen)
+            {
+                MinigameCanvas.SetActive(true);
+                Time.timeScale = 0;
+            }
 
-        if (minigameOpen)
-        {
-            MinigameCanvas.SetActive(true);
-            Time.timeScale = 0;
-        }
-
-        if (!minigameOpen)
-        {
-            MinigameCanvas.SetActive(false);
-            Time.timeScale = 1;
+            if (!minigameOpen)
+            {
+                MinigameCanvas.SetActive(false);
+                Time.timeScale = 1;
+            }
         }
     }
 }
