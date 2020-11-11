@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovementScript : MonoBehaviour
 {
     private int speedRun = 10;
-    private int speedJump = 250;
+    private int speedJump = 300;
     public bool facingRight = false;
     public float moveOnX;
     public bool grounded; 
