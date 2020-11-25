@@ -51,6 +51,18 @@ public class TaskScript2Sub : MonoBehaviour
         {
             Debug.Log("3/4");
         }
+        else if (overallScore == 2)
+        {
+            Debug.Log("2/4");
+        }
+        else if (overallScore == 1)
+        {
+            Debug.Log("1/4");
+        }
+        else
+        {
+            Debug.Log("0/4");
+        }
     }
 
     public void OnClickAnswer1(bool answer1)

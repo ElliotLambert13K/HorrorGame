@@ -7,6 +7,9 @@ TagManager:
   - ground
   - right
   - wrong
+  - Task
+  - ChangeSceneWorld
+  - ChangeSceneRoom
   layers:
   - Default
   - TransparentFX

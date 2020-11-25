@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovementScript : MonoBehaviour
 {
@@ -8,13 +9,16 @@ public class MovementScript : MonoBehaviour
     private int speedJump = 300;
     public bool facingRight = false;
     public float moveOnX;
-    public bool grounded; 
+    public bool grounded;
+    public bool interactionWorld;
+    public bool interactionRoom;
 
 
     // Update is called once per frame
     void Update()
     {
         playerMovement();
+        Interact();
     }
 
     void playerMovement()
@@ -23,7 +27,6 @@ public class MovementScript : MonoBehaviour
         moveOnX = Input.GetAxis("Horizontal");
         if (Input.GetButtonDown("Jump") && grounded == true)
         {
-
             Jump();
         }
         if (moveOnX < 0.0f && facingRight == false)
@@ -49,11 +52,34 @@ public class MovementScript : MonoBehaviour
         {
             grounded = true;
         }
+        if (col.gameObject.tag == "ChangeSceneWorld")
+        {
+            interactionRoom = true;
+        }
+        if (col.gameObject.tag == "ChangeSceneRoom")
+        {
+            interactionWorld = true;
+        }
     }
     void Jump()
     {
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * speedJump);
         grounded = false;
         Debug.Log("bruh");
+    }
+    void Interact()
+    {
+        if (Input.GetButtonDown("Fire2") && interactionWorld == true)
+        {
+            SceneManager.LoadScene("RoomTransferTest");
+            Debug.Log("Crime");
+            interactionWorld = false;
+        }
+        if (Input.GetButtonDown("Fire2") && interactionRoom == true)
+        {
+            SceneManager.LoadScene("TestingMechScene");
+            Debug.Log("War");
+            interactionRoom = false;
+        }
     }
 }
