@@ -12,6 +12,7 @@ public class MovementScript : MonoBehaviour
     public bool grounded;
     public bool interactionWorld;
     public bool interactionRoom;
+    public bool interactionClass;
 
 
     // Update is called once per frame
@@ -60,6 +61,10 @@ public class MovementScript : MonoBehaviour
         {
             interactionWorld = true;
         }
+        if (col.gameObject.tag == "ChangeSceneClass")
+        {
+            interactionClass = true;
+        }
     }
     void Jump()
     {
@@ -71,15 +76,21 @@ public class MovementScript : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire2") && interactionWorld == true)
         {
-            SceneManager.LoadScene("RoomTransferTest");
+            SceneManager.LoadScene("LevelRoomBase");
             Debug.Log("Crime");
             interactionWorld = false;
         }
         if (Input.GetButtonDown("Fire2") && interactionRoom == true)
         {
-            SceneManager.LoadScene("TestingMechScene");
+            SceneManager.LoadScene("MainSceneUncorr");
             Debug.Log("War");
             interactionRoom = false;
+        }
+        if (Input.GetButtonDown("Fire2") && interactionClass == true)
+        {
+            SceneManager.LoadScene("ClassroomUncorr");
+            Debug.Log("Endme");
+            interactionClass = false;
         }
     }
 }
